@@ -22,3 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+
+#ifdef CRAYON_DEBUG
+#   include <stdio.h>
+#endif

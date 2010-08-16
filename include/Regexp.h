@@ -47,13 +47,19 @@ typedef struct RegexpMatches {
 
 Regexp* CR_CreateRegexp (char* regexp, int options);
 
-void CR_DestroyRegexp (Regexp* object);
+void CR_DestroyRegexp (Regexp* regexp);
+
+void CR_DestroyRegexpKeepString (Regexp* regexp);
 
 RegexpMatches* CR_CreateRegexpMatches (size_t length);
 
 void CR_DestroyRegexpMatches (RegexpMatches* object);
 
 RegexpMatches* CR_MatchRegexp (Regexp* regexp, String* string);
+
+RegexpMatches* CR_MatchRegexpString (char* regexp, int options, String* string);
+
+RegexpMatches* CR_MatchRegexpString2 (char* regexp, int options, char* string);
 
 bool CR_TestRegexp (Regexp* regexp, String* string);
 

@@ -19,37 +19,3 @@
   along with Crayon. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-#include <getopt.h>
-
-#include <Crayon.h>
-
-int
-main (int argc, char** argv)
-{
-    RegexpMatches* matches;
-    size_t         i;
-    
-    if (argc < 3) {
-        fprintf(stderr, "Usage: %s <regexp> <string>\n", argv[0]);
-        return 1;
-    }
-
-    printf("Matching \"%s\" with /%s/\n\n", argv[2], argv[1]);
-
-    matches = CR_MatchRegexpString2(argv[1], 0, argv[2]);
-
-    if (matches == NULL) {
-        puts("The regexp didn't match the string.");
-    }
-    else {
-        printf("The matched string is: %s\n", matches->item[0]->data);
-
-        for (i = 1; i < matches->length; i++) {
-            printf("%lu: %s\n", i, matches->item[i]->data);
-        }
-    }
-
-    return 0;
-}
-
